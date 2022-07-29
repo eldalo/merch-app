@@ -1,7 +1,13 @@
 import React from 'react';
+import state from '@mock/state';
+
+import Products from '@components/Products';
 
 const Home = () => {
-  return <h1>Home</h1>;
+  console.log(state);
+  return (
+    <Products products={state.products} />
+  );
 };
 
 export default Home;
