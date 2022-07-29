@@ -1,10 +1,9 @@
 import React from 'react';
-import state from '@mock/state';
 
 import Products from '@components/Products';
+import state from '@mock/state';
 
 const Home = () => {
-  console.log(state);
   return (
     <Products products={state.products} />
   );

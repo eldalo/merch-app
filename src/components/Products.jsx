@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const Products = ({ products }) => {
+import AppContext from '@context/AppContext';
+
+const Products = () => {
+  const {
+    state: { products },
+    addToCart,
+  } = useContext(AppContext);
+
+  const handleAddToCart = (product) => () => {
+    console.log('product', product);
+    addToCart(product);
+  };
+
   return (
     <div className="products">
       {products?.map((product, key) => (
@@ -15,7 +27,11 @@ const Products = ({ products }) => {
               {product?.title} <span>$ {product?.price}</span>
             </h2>
             <p className="product__description">{product?.description}</p>
-            <button className="product__button" type="button">
+            <button
+              className="product__button"
+              type="button"
+              onClick={handleAddToCart(product)}
+            >
               Payment
             </button>
           </article>
